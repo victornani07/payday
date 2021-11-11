@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PaydayApp</string>
+    <string name="welcome">Welcome</string>
+    <string name="greetingMessage">The pay app of your dreams</string>
+    <string name="marketingMessage">Become a member of the future. Payday Inc.</string>
+    <string name="login">LOG IN</string>
+    <string name="signup">SIGN UP</string>
+    <string name="makeYourAccount">Make your account:</string>
+    <string name="firstName"><i>First name…</i></string>
+    <string name="lastName"><i>Last name…</i></string>
+    <string name="username"><i>Username…</i></string>
+    <string name="email"><i>Email…</i></string>
+    <string name="password"><i>Password…</i></string>
+    <string name="confirmPassword"><i>Confirm password…</i></string>
+    <string name="dataProcessing1">I consent to the processing of my</string>
+    <string name="dataProcessing2">personal data</string>
+</resources>
