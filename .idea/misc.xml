@@ -10,7 +10,10 @@
         <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/drawable/gradient_spinner_focused.xml" value="0.13425925925925927" />
         <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/drawable/input_styles.xml" value="0.13703703703703704" />
         <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
-        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/log_in_activity.xml" value="0.1" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/denisa_activity.xml" value="0.35" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/forget_password.xml" value="0.2671875" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/forgot_password_activity.xml" value="0.2671875" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/log_in_activity.xml" value="0.3333333333333333" />
         <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/normal_person_sign_up_activity.xml" value="0.4466666666666667" />
         <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/sign_up_activity.xml" value="0.35989583333333336" />
         <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/welcome_activity.xml" value="0.35989583333333336" />
