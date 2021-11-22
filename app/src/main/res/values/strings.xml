@@ -14,4 +14,14 @@
     <string name="confirmPassword"><i>Confirm password…</i></string>
     <string name="dataProcessing1">I consent to the processing of my</string>
     <string name="dataProcessing2">personal data</string>
+    <string name="signInMessage">Sign in to use our pay app:</string>
+    <string name="signInButton">Sign In</string>
+    <string name="alreadyMessage1">Not registered yet?</string>
+    <string name="alreadyMessage2">Click</string>
+    <string name="alreadyMessage3">to make an account.</string>
+    <string name="clickHere"><u>here</u></string>
+    <string name="forgotPassword">Forgot your password?</string>
+    <string name="enterYourEmail">Enter your email</string>
+    <string name="send">Send</string>
+    <string name="forgotMessage">Enter your email below to send your password.</string>
 </resources>

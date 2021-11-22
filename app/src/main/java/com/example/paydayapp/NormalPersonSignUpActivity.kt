@@ -14,7 +14,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 class NormalPersonSignUpActivity : AppCompatActivity() {
@@ -91,14 +90,12 @@ class NormalPersonSignUpActivity : AppCompatActivity() {
             usernameLayout = findViewById(R.id.usernameLayout)
             emailLayout = findViewById(R.id.emailLayout)
             passwordLayout = findViewById(R.id.passwordLayout)
-
             dataCheckBox = findViewById(R.id.dataCheckBox)
 
             val databaseLocation =
                 "https://payday-5e8db-default-rtdb.europe-west1.firebasedatabase.app"
             val database = Firebase.database(databaseLocation)
             val ref = database.getReference("Natural Users")
-
             var existsUsername = false
             var existsEmail = false
 
@@ -119,28 +116,27 @@ class NormalPersonSignUpActivity : AppCompatActivity() {
                                 break
                             }
                         }
-
-                        val a = filterFirstName()
-                        val b = filterLastName()
-                        val c = filterUsername(existsUsername)
-                        val d = filterEmail(existsEmail)
-                        val e = filterPassword()
-                        val f = filterDataCheckBox()
-                        val areDataCorrect = a && b && c && d && e && f
-
-                        if(areDataCorrect) {
-                            val naturalUserId = ref.push().key.toString()
-                            val naturalUser = NaturalUser(firstName, lastName, username, email, password)
-                            ref.child(naturalUserId).setValue(naturalUser)
-                        }
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     Log.w("Debug", "Failed to read value.", error.toException())
                 }
-
             })
+
+            val a = filterFirstName()
+            val b = filterLastName()
+            val c = filterUsername(existsUsername)
+            val d = filterEmail(existsEmail)
+            val e = filterPassword()
+            val f = filterDataCheckBox()
+            val isDataCorrect = a && b && c && d && e && f
+
+            if(isDataCorrect) {
+                val naturalUserId = ref.push().key.toString()
+                val naturalUser = NaturalUser(firstName, lastName, username, email, password)
+                ref.child(naturalUserId).setValue(naturalUser)
+            }
         }
     }
 
