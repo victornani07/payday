@@ -5,10 +5,15 @@
     <string name="marketingMessage">Become a member of the future. Payday Inc.</string>
     <string name="login">LOG IN</string>
     <string name="signup">SIGN UP</string>
+    <string name="companyName"><i>Company name…</i></string>
+    <string name="companyCUI"><i>U.R.C…</i></string>
     <string name="makeYourAccount">Make your account:</string>
     <string name="firstName"><i>First name…</i></string>
+    <string name="chooseYourDomain">Choose your domain</string>
     <string name="lastName"><i>Last name…</i></string>
     <string name="username"><i>Username…</i></string>
+    <string name="legalPerson">Legal Person</string>
+    <string name="naturalPerson">Natural Person</string>
     <string name="email"><i>Email…</i></string>
     <string name="password"><i>Password…</i></string>
     <string name="confirmPassword"><i>Confirm password…</i></string>

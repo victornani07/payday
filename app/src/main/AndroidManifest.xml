@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PaydayApp">
         <activity
+            android:name=".LegalPersonSignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChooseYourDomainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Denisa"
             android:exported="false" />
         <activity
