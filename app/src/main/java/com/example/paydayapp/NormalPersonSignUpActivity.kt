@@ -95,12 +95,13 @@ class NormalPersonSignUpActivity : AppCompatActivity() {
             val databaseLocation =
                 "https://payday-5e8db-default-rtdb.europe-west1.firebasedatabase.app"
             val database = Firebase.database(databaseLocation)
-            val ref = database.getReference("Natural Users")
-            var existsUsername = false
-            var existsEmail = false
+            val ref = database.getReference("Users")
 
             ref.addValueEventListener(object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    var existsUsername = false
+                    var existsEmail = false
+
                     if(snapshot.exists()) {
                         for(u in snapshot.children) {
                             val uname = u.child("username").value.toString()
@@ -117,26 +118,26 @@ class NormalPersonSignUpActivity : AppCompatActivity() {
                             }
                         }
                     }
+
+                    val a = filterFirstName()
+                    val b = filterLastName()
+                    val c = filterUsername(existsUsername)
+                    val d = filterEmail(existsEmail)
+                    val e = filterPassword()
+                    val f = filterDataCheckBox()
+                    val isDataCorrect = a && b && c && d && e && f
+
+                    if(isDataCorrect) {
+                        val naturalUserId = ref.push().key.toString()
+                        val naturalUser = NaturalUser(firstName, lastName, username, email, password, "N")
+                        ref.child(naturalUserId).setValue(naturalUser)
+                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     Log.w("Debug", "Failed to read value.", error.toException())
                 }
             })
-
-            val a = filterFirstName()
-            val b = filterLastName()
-            val c = filterUsername(existsUsername)
-            val d = filterEmail(existsEmail)
-            val e = filterPassword()
-            val f = filterDataCheckBox()
-            val isDataCorrect = a && b && c && d && e && f
-
-            if(isDataCorrect) {
-                val naturalUserId = ref.push().key.toString()
-                val naturalUser = NaturalUser(firstName, lastName, username, email, password)
-                ref.child(naturalUserId).setValue(naturalUser)
-            }
         }
     }
 

@@ -29,7 +29,7 @@ class WelcomeActivity : AppCompatActivity() {
         handleLogInButton(logInButton)
 
         val signUpButton = findViewById<Button?>(R.id.signUpButton)
-        handleNormalPersonSignUpButton(signUpButton)
+        handleSignUpButton(signUpButton)
     }
 
     private fun handleLogInButton(logInButton : Button?)  {
@@ -42,12 +42,12 @@ class WelcomeActivity : AppCompatActivity() {
 
     }
 
-    private fun handleNormalPersonSignUpButton(signUpButton : Button?)  {
+    private fun handleSignUpButton(signUpButton : Button?)  {
         if(signUpButton == null)
             throw NullPointerException("The log in button is null.")
 
         signUpButton.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, NormalPersonSignUpActivity::class.java))
+            startActivity(Intent(this, ChooseYourDomainActivity::class.java))
         })
 
     }
