@@ -78,7 +78,7 @@ class LogInActivity : AppCompatActivity() {
             val databaseLocation =
                 "https://payday-5e8db-default-rtdb.europe-west1.firebasedatabase.app"
             val database = Firebase.database(databaseLocation)
-            val ref = database.getReference("Natural Users")
+            val ref = database.getReference("Users")
 
             ref.addValueEventListener(object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -86,6 +86,7 @@ class LogInActivity : AppCompatActivity() {
                         for(u in snapshot.children) {
                             val un = u.child("username").value.toString()
                             val pw = u.child("password").value.toString()
+                            val domain = u.child("domain").value.toString()
                             if(username == un && password == pw) {
                                 loginUsernameInputLayout.error = ""
                                 break
