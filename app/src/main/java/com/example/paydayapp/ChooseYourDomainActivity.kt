@@ -2,19 +2,8 @@ package com.example.paydayapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.content.Intent
-import android.util.Log
-import android.view.View
 import android.widget.ImageView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-
 class ChooseYourDomainActivity : AppCompatActivity() {
 
     private lateinit var naturalLogo : ImageView
@@ -30,14 +19,13 @@ class ChooseYourDomainActivity : AppCompatActivity() {
         legalLogo = findViewById(R.id.legalLogo)
         legalLogo.bringToFront()
 
-        //naturalPersonButton = findViewById(R.id.buttonNormal)
 
-        naturalLogo.setOnClickListener(View.OnClickListener {
+        naturalLogo.setOnClickListener {
             startActivity(Intent(this, NormalPersonSignUpActivity::class.java))
-        })
+        }
 
-        legalLogo.setOnClickListener(View.OnClickListener {
+        legalLogo.setOnClickListener {
             startActivity(Intent(this, LegalPersonSignUpActivity::class.java))
-        })
+        }
     }
 }

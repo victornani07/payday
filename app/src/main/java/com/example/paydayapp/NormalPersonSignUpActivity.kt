@@ -1,5 +1,6 @@
 package com.example.paydayapp
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -108,7 +109,6 @@ class NormalPersonSignUpActivity : AppCompatActivity() {
                             val mail = u.child("email").value.toString()
 
                             if(email == mail || uname == username) {
-                                Log.d("VictorNani", uname)
                                 if (email == mail)
                                     existsEmail = true
                                 if (username == uname)
@@ -128,9 +128,10 @@ class NormalPersonSignUpActivity : AppCompatActivity() {
                     val isDataCorrect = a && b && c && d && e && f
 
                     if(isDataCorrect) {
-                        val naturalUserId = ref.push().key.toString()
+                        val naturalUserId = username + "_natural"
                         val naturalUser = NaturalUser(firstName, lastName, username, email, password, "N")
                         ref.child(naturalUserId).setValue(naturalUser)
+                        startActivity(Intent(this@NormalPersonSignUpActivity, LogInActivity::class.java))
                     }
                 }
 

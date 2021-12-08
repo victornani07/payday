@@ -1,10 +1,9 @@
 package com.example.paydayapp
 
+import android.content.Intent
 import android.graphics.Color
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
@@ -164,12 +163,11 @@ class LegalPersonSignUpActivity : AppCompatActivity() {
                     val f = !takenCUI
                     val isDataCorrect = a && b && c && d && e && existsCUI && f
 
-                    Log.d("VictorNani","taken: $takenCUI")
-
                     if(isDataCorrect) {
-                        val legalUserId = refUsers.push().key.toString()
+                        val legalUserId = username + "_legal"
                         val legalUser = LegalUser(companyName, CUI, username, password, "L")
                         refUsers.child(legalUserId).setValue(legalUser)
+                        startActivity(Intent(this@LegalPersonSignUpActivity, LogInActivity::class.java))
                     }
                 }
 
@@ -177,29 +175,6 @@ class LegalPersonSignUpActivity : AppCompatActivity() {
                     Log.w("Debug", "Failed to read value.", error.toException())
                 }
             })
-
-
-
-//            val a = filterCompanyName()
-//            val b = filterUsername(false)
-//            val c = filterPassword()
-//            val d = filterDataCheckBox()
-//            val isDataCorrect = a && b && c && d && cuiExists
-//
-//            Log.d("VictorNani", a.toString())
-//            Log.d("VictorNani", b.toString())
-//            Log.d("VictorNani", c.toString())
-//            Log.d("VictorNani", d.toString())
-//            Log.d("VictorNani", isDataCorrect.toString())
-//
-//
-//            Log.d("VictorNani", isDataCorrect.toString())
-//
-//            if(isDataCorrect) {
-//                val legalUserId = ref.push().key.toString()
-//                val legalUser = LegalUser(companyName, CUI, username, password, "L")
-//                ref.child(legalUserId).setValue(legalUser)
-//            }
         }
     }
 

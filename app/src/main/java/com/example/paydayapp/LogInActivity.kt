@@ -1,5 +1,6 @@
 package com.example.paydayapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -60,7 +61,7 @@ class LogInActivity : AppCompatActivity() {
 
     private fun handleClickHereButton() {
         clickHereButton.setOnClickListener {
-            startActivity(Intent(this, NormalPersonSignUpActivity::class.java))
+            startActivity(Intent(this, ChooseYourDomainActivity::class.java))
         }
     }
 
@@ -80,19 +81,26 @@ class LogInActivity : AppCompatActivity() {
             val database = Firebase.database(databaseLocation)
             val ref = database.getReference("Users")
 
-            ref.addValueEventListener(object: ValueEventListener {
+            ref.addValueEventListener(object : ValueEventListener {
+                @SuppressLint("CommitPrefEdits")
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if(snapshot.exists())
-                        for(u in snapshot.children) {
+                    if (snapshot.exists())
+                        for (u in snapshot.children) {
                             val un = u.child("username").value.toString()
                             val pw = u.child("password").value.toString()
                             val domain = u.child("domain").value.toString()
-                            if(username == un && password == pw) {
-                                loginUsernameInputLayout.error = ""
+                            if (username == un && password == pw) {
+                                if(domain == "N") {
+                                    val intent = Intent(
+                                        this@LogInActivity,
+                                        CompanyListActivity::class.java
+                                    )
+                                    intent.putExtra("username", username)
+                                    startActivity(intent)
+                                }
                                 break
                             } else
                                 loginUsernameInputLayout.error = "Credentials are incorrect"
-
                         }
                 }
 

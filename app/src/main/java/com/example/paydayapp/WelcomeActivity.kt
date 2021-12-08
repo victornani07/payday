@@ -12,7 +12,6 @@ import java.lang.NullPointerException
 
 class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome_activity)
 

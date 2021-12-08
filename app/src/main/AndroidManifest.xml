@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PaydayApp">
         <activity
+            android:name=".ModalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".classes.ScanProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CompanyListActivity"
+            android:exported="false" />
+        <activity
             android:name=".LegalPersonSignUpActivity"
             android:exported="false" />
         <activity
