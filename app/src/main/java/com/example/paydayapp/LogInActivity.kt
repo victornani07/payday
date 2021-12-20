@@ -97,6 +97,14 @@ class LogInActivity : AppCompatActivity() {
                                     )
                                     intent.putExtra("username", username)
                                     startActivity(intent)
+                                } else {
+                                    val intent = Intent(
+                                        this@LogInActivity,
+                                        AddProductsActivity::class.java
+                                    )
+                                    val companyName = u.child("companyName").value.toString()
+                                    intent.putExtra("companyName", companyName)
+                                    startActivity(intent)
                                 }
                                 break
                             } else

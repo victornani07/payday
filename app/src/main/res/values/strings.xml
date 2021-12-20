@@ -27,6 +27,15 @@
     <string name="clickHere"><u>here</u></string>
     <string name="forgotPassword">Forgot your password?</string>
     <string name="enterYourEmail">Enter your email</string>
+    <string name="addProduct">Add a product</string>>
     <string name="send">Send</string>
+    <string name="productName">Product name</string>
+    <string name="price">Price</string>
+    <string name="barcode">Barcode</string>
+    <string name="scan">Scan</string>>
+    <string name="edit">Edit</string>>
+    <string name="delete">Delete</string>>
+    <string name="add">Add</string>>
+    <string name="newName">New name(required only for edit)</string>>
     <string name="forgotMessage">Enter your email below to send your password.</string>
 </resources>
