@@ -169,6 +169,9 @@ class LegalPersonSignUpActivity : AppCompatActivity() {
                         val legalUserId = username + "_legal"
                         val legalUser = LegalUser(companyName, CUI, username, password, "L")
                         refUsers.child(legalUserId).setValue(legalUser)
+                        usernameLayout.isErrorEnabled = false
+                        emailLayout.isErrorEnabled = false
+                        CUILayout.isErrorEnabled = false
                         startActivity(Intent(this@LegalPersonSignUpActivity, AddProductsActivity::class.java))
                     }
                 }

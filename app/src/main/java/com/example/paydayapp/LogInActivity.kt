@@ -90,6 +90,8 @@ class LogInActivity : AppCompatActivity() {
                             val pw = u.child("password").value.toString()
                             val domain = u.child("domain").value.toString()
                             if (username == un && password == pw) {
+                                loginUsernameInputLayout.isErrorEnabled = false
+
                                 if(domain == "N") {
                                     val intent = Intent(
                                         this@LogInActivity,
@@ -103,6 +105,7 @@ class LogInActivity : AppCompatActivity() {
                                         AddProductsActivity::class.java
                                     )
                                     val companyName = u.child("companyName").value.toString()
+
                                     intent.putExtra("companyName", companyName)
                                     startActivity(intent)
                                 }

@@ -3,20 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/drawable/rounded_corner_view.xml" value="0.19282051282051282" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/add_products_activity.xml" value="0.22" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/add_products_activity.xml" value="0.28177083333333336" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/company_list_activity.xml" value="0.34427083333333336" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/continue_payment_popup_layout.xml" value="0.34427083333333336" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/delete_or_no_layout.xml" value="0.28072916666666664" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/legal_person_sign_up_activity.xml" value="0.22" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/log_in_activity.xml" value="0.32708333333333334" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/normal_person_sign_up_activity.xml" value="0.35989583333333336" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/pay_products_activity.xml" value="0.4466666666666667" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/payment_info_popup_layout.xml" value="0.3333333333333333" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/scan_products_activity.xml" value="0.3333333333333333" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/successful_pay_popup.xml" value="0.34427083333333336" />
+        <entry key="..\:/Dox/Projects/Payday/PaydayApp/app/src/main/res/layout/welcome_activity.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/choose_your_domain_activity.xml" value="0.22" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/company_list_activity.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/continue_payment_popup_layout.xml" value="0.1796875" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/delete_or_no_layout.xml" value="0.1796875" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/forgot_password_activity.xml" value="0.1796875" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/legal_person_sign_up_activity.xml" value="0.22" />
+        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/legal_person_sign_up_activity.xml" value="0.13999999999999999" />
         <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/log_in_activity.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/normal_person_sign_up_activity.xml" value="0.22" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/payment_info_popup_layout.xml" value="0.1796875" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/scan_products_activity.xml" value="0.1796875" />
         <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul 4/CHS/PaydayApp/app/src/main/res/layout/welcome_activity.xml" value="0.1796875" />
-        <entry key="..\:/Users/EliteBook/Desktop/UPT/Anul4/CHS/PaydayApp/app/src/main/res/layout/add_products_activity.xml" value="0.1796875" />
       </map>
     </option>
   </component>

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
@@ -19,6 +20,9 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.zxing.integration.android.IntentIntegrator
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.properties.Delegates
 
 class AddProductsActivity : AppCompatActivity() {
 
@@ -68,8 +72,11 @@ class AddProductsActivity : AppCompatActivity() {
         productBarecode = ""
 
         handleScanButton()
+
         handleAddButton()
+
         handleDeleteButton()
+
         handleEditButton()
     }
 
@@ -80,6 +87,28 @@ class AddProductsActivity : AppCompatActivity() {
             scanner.addExtra("SCAN_CAMERA_ID", 0)
             scanner.initiateScan()
         }
+    }
+
+
+    private fun clearFun() {
+        val timer = object: CountDownTimer(3000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+
+            }
+
+            override fun onFinish() {
+                successTextView.text = ""
+            }
+        }
+        timer.start()
+    }
+
+    private fun clearErrors() {
+        productBarecodeLayout.error = ""
+        productNameLayout.error = ""
+        productPriceLayout.error = ""
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -98,9 +127,7 @@ class AddProductsActivity : AppCompatActivity() {
     }
 
     private fun handleAddButton() {
-
         addButton.setOnClickListener {
-
             productName = productNameText.text.toString()
             productPrice = productPriceText.text.toString()
 
@@ -117,7 +144,9 @@ class AddProductsActivity : AppCompatActivity() {
 
                     if (snapshot.exists()) {
                         for (u in snapshot.children) {
-                            if (u.child("productName").value.toString() == productName) {
+                            if (u.child("productName").value.toString() == productName &&
+                                u.child("productBarecode").value.toString() == productBarecode
+                            ) {
                                 existsProduct = true
                                 break
                             }
@@ -130,7 +159,6 @@ class AddProductsActivity : AppCompatActivity() {
                     val d = a && b && c
 
                     if (d) {
-
                         if (!existsProduct) {
                             val product = Product(productName, productPrice, productBarecode)
                             val productId = productName
@@ -139,17 +167,23 @@ class AddProductsActivity : AppCompatActivity() {
                             productNameText.setText("")
                             productPriceText.setText("")
                             productBarecodeText.setText("")
+                            productName = ""
+                            productBarecode = ""
 
                             successTextView.text = "The product was successfully added!"
                             successTextView.setTextColor(Color.parseColor("#03ac13"))
+                            clearErrors()
+                            clearFun()
+
                         } else {
-                            Log.d("VictorNani", "EXISTA")
                             productNameText.setText("")
                             productPriceText.setText("")
                             productBarecodeText.setText("")
 
                             successTextView.text = "This product already exists!"
                             successTextView.setTextColor(Color.parseColor("#e3242b"))
+                            clearErrors()
+                            clearFun()
                         }
                     }
                 }
@@ -163,7 +197,6 @@ class AddProductsActivity : AppCompatActivity() {
 
     private fun handleDeleteButton() {
         deleteButton.setOnClickListener {
-
             productName = productNameText.text.toString()
             productPrice = productPriceText.text.toString()
 
@@ -195,7 +228,6 @@ class AddProductsActivity : AppCompatActivity() {
                     val d = a && b && c
 
                     if (d) {
-
                         if (deleteProduct) {
                             productNameText.setText("")
                             productPriceText.setText("")
@@ -203,6 +235,7 @@ class AddProductsActivity : AppCompatActivity() {
 
                             successTextView.text = "The product was successfully deleted"
                             successTextView.setTextColor(Color.parseColor("#03ac13"))
+                            clearFun()
                         }
                     }
                 }
@@ -216,7 +249,6 @@ class AddProductsActivity : AppCompatActivity() {
 
     private fun handleEditButton() {
         editButton.setOnClickListener {
-
             productName = productNameText.text.toString()
             productPrice = productPriceText.text.toString()
 
@@ -247,7 +279,6 @@ class AddProductsActivity : AppCompatActivity() {
                     val d = a && b && c
 
                     if (d) {
-
                         if (existsProduct) {
                             val product = Product(productName, productPrice, productBarecode)
                             val productId = productName
@@ -259,14 +290,15 @@ class AddProductsActivity : AppCompatActivity() {
 
                             successTextView.text = "The product was successfully edited!"
                             successTextView.setTextColor(Color.parseColor("#03ac13"))
+                            clearFun()
                         } else {
-                            Log.d("VictorNani", "EXISTA")
                             productNameText.setText("")
                             productPriceText.setText("")
                             productBarecodeText.setText("")
 
                             successTextView.text = "This product does not exist!"
                             successTextView.setTextColor(Color.parseColor("#e3242b"))
+                            clearFun()
                         }
                     }
                 }
@@ -312,15 +344,15 @@ class AddProductsActivity : AppCompatActivity() {
                         return false
                     }
                 }
-                if (productPrice[i] < '0' || productPrice[i] > '9'){
+                else if (productPrice[i] < '0' || productPrice[i] > '9'){
                     productPriceLayout.error = "This field does not respect the price format"
                     return false
                 }
             }
-            productPriceLayout.error = ""
+
         }
 
+        productPriceLayout.error = ""
         return true
-
     }
 }

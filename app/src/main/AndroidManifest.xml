@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PaydayApp">
         <activity
+            android:name=".PayProductsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddProductsActivity"
             android:exported="false" />
         <activity

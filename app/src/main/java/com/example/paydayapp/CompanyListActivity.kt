@@ -43,7 +43,6 @@ class CompanyListActivity : AppCompatActivity() {
         var id = 1
 
         username = intent.getStringExtra("username").toString()
-        Log.d("VictorNani", username)
 
         companyListLayout = findViewById(R.id.companyListLayout)
         companyListLayout.id = id++
@@ -112,7 +111,8 @@ class CompanyListActivity : AppCompatActivity() {
                                     this@CompanyListActivity,
                                     ScanProductsActivity::class.java
                                 )
-                                intent.putExtra("companyName", companyName)
+                                val message = "$companyName $username"
+                                intent.putExtra("companyName", message)
                                 startActivity(intent)
                             }
                         }
