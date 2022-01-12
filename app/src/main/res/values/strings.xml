@@ -42,4 +42,5 @@
     <string name="name_on_card">Name on card</string>
     <string name="expiry_date_mm_yy">Expiry date(MM/YY)</string>
     <string name="security_code">Security Code</string>
+    <string name="log_out">LOG OUT</string>
 </resources>

@@ -7,13 +7,11 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
-import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.paydayapp.classes.LegalUser
-import com.example.paydayapp.classes.NaturalUser
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.database.DataSnapshot
@@ -21,8 +19,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.lang.NullPointerException
-import kotlin.properties.Delegates
 
 class LegalPersonSignUpActivity : AppCompatActivity() {
 
@@ -172,7 +168,12 @@ class LegalPersonSignUpActivity : AppCompatActivity() {
                         usernameLayout.isErrorEnabled = false
                         emailLayout.isErrorEnabled = false
                         CUILayout.isErrorEnabled = false
-                        startActivity(Intent(this@LegalPersonSignUpActivity, AddProductsActivity::class.java))
+                        val intent = Intent(
+                            this@LegalPersonSignUpActivity,
+                            AddProductsActivity::class.java
+                        )
+                        intent.putExtra("companyName", companyName)
+                        startActivity(intent)
                     }
                 }
 

@@ -12,15 +12,32 @@
         android:layout_height="wrap_content"
         android:width="159dp"
         android:height="33dp"
-        android:fontFamily="@font/segoe_ui_light"
+        android:fontFamily="@font/sf_pro_display_thin"
         android:text="@string/addProduct"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintVertical_bias="0.137" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="129dp"
+        android:layout_height="56dp"
+        android:backgroundTint="@color/purpleRed"
+        android:fontFamily="@font/segoe_ui_light"
+        android:text="@string/log_out"
+        android:textSize="18sp"
+        app:cornerRadius="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/productNameLayout"
@@ -45,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35000002">
+        app:layout_constraintVertical_bias="0.3">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/productNameText"
@@ -90,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47000003">
+        app:layout_constraintVertical_bias="0.41000003">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/productPriceText"
@@ -135,7 +152,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58000004">
+        app:layout_constraintVertical_bias="0.52">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/productBarcodeText"
@@ -168,7 +185,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/button2"
@@ -182,7 +199,7 @@
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/button3"
@@ -196,29 +213,29 @@
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/purpleRed"
+        android:backgroundTint="@color/darkBlueGrey"
         android:fontFamily="@font/segoe_ui_light"
         android:text="@string/scan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.93" />
+        app:layout_constraintVertical_bias="0.81" />
 
     <ImageView
         android:id="@+id/header"
         android:layout_width="502dp"
         android:layout_height="130dp"
-        android:layout_marginBottom="608dp"
+        android:layout_marginBottom="636dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/header_add_products" />
 
@@ -229,15 +246,15 @@
         android:width="369dp"
         android:height="33dp"
         android:fontFamily="@font/segoe_ui_light"
+        android:gravity="center_horizontal"
         android:text=""
         android:textColor="#000000"
         android:textSize="18sp"
-        android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
+        app:layout_constraintVertical_bias="0.614" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

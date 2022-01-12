@@ -2,15 +2,16 @@ package com.example.paydayapp
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
-import com.example.paydayapp.classes.LegalUser
 import com.example.paydayapp.classes.Product
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -20,9 +21,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.zxing.integration.android.IntentIntegrator
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.properties.Delegates
 
 class AddProductsActivity : AppCompatActivity() {
 
@@ -30,6 +28,7 @@ class AddProductsActivity : AppCompatActivity() {
     private lateinit var deleteButton : Button
     private lateinit var addButton : Button
     private lateinit var scanButton : Button
+    private lateinit var logOutButton : Button
 
     private lateinit var productName : String
     private lateinit var productPrice : String
@@ -49,6 +48,8 @@ class AddProductsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_products_activity)
+
+        logOutButton = findViewById(R.id.button5)
 
         companyName = intent.getStringExtra("companyName").toString()
 
@@ -78,6 +79,26 @@ class AddProductsActivity : AppCompatActivity() {
         handleDeleteButton()
 
         handleEditButton()
+
+        handleLogOutButton()
+    }
+
+    private fun handleLogOutButton() {
+        logOutButton.setOnClickListener {
+            val modalDialog = LayoutInflater.from(this@AddProductsActivity).inflate(R.layout.logout_or_no_layout, null)
+            val modalBuilder = AlertDialog.Builder(this@AddProductsActivity).setView(modalDialog)
+            val modalAlert = modalBuilder.show()
+            val popupYesButton = modalDialog.findViewById<Button>(R.id.popupYesButton7)
+            val popupNoButton = modalDialog.findViewById<Button>(R.id.popupNoButton7)
+
+            popupYesButton.setOnClickListener {
+                startActivity(Intent(this@AddProductsActivity, LogInActivity::class.java))
+            }
+
+            popupNoButton.setOnClickListener {
+                modalAlert.dismiss()
+            }
+        }
     }
 
     private fun handleScanButton() {
@@ -107,8 +128,6 @@ class AddProductsActivity : AppCompatActivity() {
         productBarecodeLayout.error = ""
         productNameLayout.error = ""
         productPriceLayout.error = ""
-
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -144,7 +163,7 @@ class AddProductsActivity : AppCompatActivity() {
 
                     if (snapshot.exists()) {
                         for (u in snapshot.children) {
-                            if (u.child("productName").value.toString() == productName &&
+                            if (u.child("productName").value.toString() == productName ||
                                 u.child("productBarecode").value.toString() == productBarecode
                             ) {
                                 existsProduct = true

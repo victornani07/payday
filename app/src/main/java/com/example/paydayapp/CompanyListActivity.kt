@@ -1,27 +1,23 @@
 package com.example.paydayapp
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Typeface
-import android.media.Image
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
 
 class CompanyListActivity : AppCompatActivity() {
     private lateinit var username : String
@@ -127,7 +123,21 @@ class CompanyListActivity : AppCompatActivity() {
 
     private fun handleCompanyListLogOutButton() {
         companyListLogOutButton.setOnClickListener {
-            startActivity(Intent(this, LogInActivity::class.java))
+            companyListLogOutButton.setOnClickListener {
+                val modalDialog = LayoutInflater.from(this@CompanyListActivity).inflate(R.layout.logout_or_no_layout, null)
+                val modalBuilder = AlertDialog.Builder(this@CompanyListActivity).setView(modalDialog)
+                val modalAlert = modalBuilder.show()
+                val popupYesButton = modalDialog.findViewById<Button>(R.id.popupYesButton7)
+                val popupNoButton = modalDialog.findViewById<Button>(R.id.popupNoButton7)
+
+                popupYesButton.setOnClickListener {
+                    startActivity(Intent(this@CompanyListActivity, LogInActivity::class.java))
+                }
+
+                popupNoButton.setOnClickListener {
+                    modalAlert.dismiss()
+                }
+            }
         }
     }
 }

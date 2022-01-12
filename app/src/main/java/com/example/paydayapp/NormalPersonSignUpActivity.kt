@@ -131,7 +131,12 @@ class NormalPersonSignUpActivity : AppCompatActivity() {
                         val naturalUserId = username + "_natural"
                         val naturalUser = NaturalUser(firstName, lastName, username, email, password, "N")
                         ref.child(naturalUserId).setValue(naturalUser)
-                        startActivity(Intent(this@NormalPersonSignUpActivity, LogInActivity::class.java))
+                        val intent = Intent(
+                            this@NormalPersonSignUpActivity,
+                            CompanyListActivity::class.java
+                        )
+                        intent.putExtra("username", username)
+                        startActivity(intent)
                     }
                 }
 
